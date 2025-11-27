@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado - Pago</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para la página de pago */
+        .checkout-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        .payment-info {
+            background-color: #e9f7e9;
+            border: 1px solid var(--secondary-color);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .order-summary {
+            margin-bottom: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Finalizar Compra</h1>
+    </header>
+
+    <main class="checkout-container">
+        <h2>Detalles de Pago</h2>
+        
+        <div class="order-summary">
+            <h4>Resumen de tu Pedido:</h4>
+            <ul id="checkout-summary-list"></ul>
+            <p>Envío (Delivery): <span id="delivery-status">No Requerido</span></p>
+            <p>Total a Pagar: <strong id="checkout-total-ves">Bs. 0.00</strong> (<span id="checkout-total-usd">$0.00</span>)</p>
+        </div>
+
+        <div class="payment-info">
+            <h4>Pagar mediante Pago Móvil</h4>
+            <p>Por favor, realiza la transferencia antes de completar el formulario.</p>
+            <ul>
+                <li>**Banco:** [Nombre de tu Banco]</li>
+                <li>**C.I./R.I.F.:** V-XXXXXXXX</li>
+                <li>**Teléfono:** 04XX-XXXXXXX</li>
+            </ul>
+        </div>
+
+        <form id="payment-form">
+            <label>Subir Capture de Pago (Comprobante):</label>
+            <input type="file" id="payment-capture-file" accept="image/*" required>
+            
+            <label>Últimos 4 Dígitos de la Referencia:</label>
+            <input type="text" id="payment-ref" pattern="\d{4}" maxlength="4" placeholder="Ej: 1234" required>
+
+            <button type="submit" class="btn secondary">Confirmar Pago y Ordenar</button>
+            <p class="error-message" id="payment-error"></p>
+        </form>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="checkout_app.js"></script>
+</body>
+</html>

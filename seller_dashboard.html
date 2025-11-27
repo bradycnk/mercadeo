@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado - Panel de Vendedor</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para el dashboard del vendedor */
+        .seller-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .product-management, .order-view {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        .product-list-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .product-list-table th, .product-list-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+        .product-list-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .action-btns button {
+            margin-right: 5px;
+        }
+        .btn-edit { background-color: #ffc107; color: #333; }
+        .btn-delete { background-color: #dc3545; color: white; }
+        .order-card-seller {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🏪 Panel de Vendedor</h1>
+        <p id="business-display">Cargando Nombre de Empresa...</p>
+        <button id="logout-btn" class="btn">Cerrar Sesión</button>
+    </header>
+
+    <main class="seller-container">
+        
+        <section class="product-management">
+            <h2>➕ Añadir / Editar Productos</h2>
+            
+            <form id="product-form" class="form-card">
+                <input type="hidden" id="product-id">
+                
+                <input type="text" id="product-name" placeholder="Nombre del Producto" required>
+                <textarea id="product-description" placeholder="Descripción del Producto"></textarea>
+                
+                <input type="number" id="product-price" step="0.01" placeholder="Precio en USD (Ej: 10.50)" required>
+                
+                <select id="product-category" required>
+                    <option value="" disabled selected>Selecciona Categoría</option>
+                    </select>
+                
+                <label>Imagen del Producto:</label>
+                <input type="file" id="product-image-file" accept="image/*">
+                <p id="current-image-url" class="hidden">Imagen actual: <a href="#" target="_blank">Ver</a></p>
+
+                <button type="submit" class="btn primary" id="form-submit-btn">Añadir Producto</button>
+                <button type="button" class="btn" id="cancel-edit-btn" style="display:none;">Cancelar Edición</button>
+                <p class="error-message" id="product-error"></p>
+            </form>
+
+            <hr>
+
+            <h3>Tus Productos en Venta</h3>
+            <table class="product-list-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio (USD)</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="seller-product-list">
+                    </tbody>
+            </table>
+        </section>
+        
+        <section class="order-view">
+            <h2>📦 Órdenes de Clientes</h2>
+            <div id="seller-orders-list">
+                <p id="loading-orders">Cargando órdenes...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="seller_app.js"></script>
+</body>
+</html>

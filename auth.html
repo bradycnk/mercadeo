@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado - Iniciar Sesión / Registrarse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Tu Mercado Profesional</h1>
+    </header>
+
+    <main class="auth-container">
+        <h2>Únete / Accede</h2>
+        
+        <form id="signup-form" class="form-card">
+            <p>Selecciona tu rol para empezar el **Registro**:</p>
+            
+            <div class="radio-group">
+                <input type="radio" id="role-buyer" name="role" value="buyer" required>
+                <label for="role-buyer">🛒 Soy Comprador</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="role-seller" name="role" value="seller" required>
+                <label for="role-seller">🏪 Soy Vendedor</label>
+            </div>
+            
+            <input type="email" id="email" placeholder="Correo Electrónico" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+
+            <div id="seller-fields" class="hidden">
+                <input type="text" id="business-name" placeholder="Nombre de tu Empresa/Emprendimiento">
+                <label>Logo de la Empresa:</label>
+                <input type="file" id="logo-file" accept="image/*">
+                <p style="font-size: 0.8em; color: #6c757d;">(Debe ser subido para vendedores)</p>
+            </div>
+
+            <button type="submit" class="btn primary">Registrarse</button>
+            <p class="error-message" id="signup-error"></p>
+        </form>
+
+        <form id="login-form" class="form-card hidden">
+            <p>Ingresa con tu correo y contraseña para **Iniciar Sesión**:</p>
+            
+            <input type="email" id="login-email" placeholder="Correo Electrónico" required>
+            <input type="password" id="login-password" placeholder="Contraseña" required>
+
+            <button type="submit" class="btn primary">Iniciar Sesión</button>
+            <p class="error-message" id="login-error"></p>
+            
+            <p class="switch-link">
+                <a href="#" id="show-recovery">¿Olvidaste tu contraseña o usuario?</a>
+            </p>
+        </form>
+
+        <form id="recovery-form" class="form-card hidden">
+            <p>Ingresa tu correo para recibir un enlace de **Recuperación**:</p>
+            
+            <input type="email" id="recovery-email" placeholder="Correo Electrónico" required>
+
+            <button type="submit" class="btn primary">Enviar Enlace</button>
+            <p class="error-message" id="recovery-error"></p>
+        </form>
+        
+        <p class="switch-link">
+            ¿Ya tienes cuenta? <a href="#" id="show-login">Iniciar Sesión</a>
+        </p>
+        <p class="switch-link hidden" id="link-to-signup">
+            <a href="#" id="show-signup">Regresar al Registro</a>
+        </p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

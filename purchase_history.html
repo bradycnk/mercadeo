@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado - Mi Historial</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .history-container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        .order-card {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+        }
+        .order-card h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .order-card .status {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Historial de Pedidos</h1>
+    </header>
+
+    <main class="history-container">
+        <div id="orders-list">
+            <p id="loading-message">Cargando tu historial...</p>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="history_app.js"></script>
+</body>
+</html>
