@@ -206,7 +206,7 @@ const checkAuthAndRedirect = async () => {
     const { data: { session } } = await sb.auth.getSession();
     
     if (!session) {
-        window.location.href = 'auth.html'; // Redirigir si no está logeado
+        window.location.href = 'index.html'; // Redirigir si no está logeado
         return;
     }
 
@@ -214,7 +214,7 @@ const checkAuthAndRedirect = async () => {
     const { data: profile, error } = await sb.from('profiles').select('role').eq('id', session.user.id).single();
     if (profile?.role !== 'buyer' || error) {
         await sb.auth.signOut();
-        window.location.href = 'auth.html';
+        window.location.href = 'index.html';
         return;
     }
     
@@ -230,7 +230,7 @@ const handleLogout = async () => {
     if (error) {
         console.error('Error al cerrar sesión:', error.message);
     } else {
-        window.location.href = 'auth.html';
+        window.location.href = 'index.html';
     }
 };
 
@@ -267,4 +267,5 @@ checkoutBtn.addEventListener('click', () => {
 // Inicio de la aplicación
 
 checkAuthAndRedirect();
+
 
