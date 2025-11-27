@@ -1,5 +1,5 @@
 // =========================================================
-// 1. CONFIGURACIÓN DE SUPABASE
+// 1. CONFIGURACIÓN DE SUPABASE DE BRADY
 // =========================================================
 const SUPABASE_URL = 'https://lnajsuwkmxaaaukktxgvi.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxuYWpzdXdrbXhhYWt1a2t4Z3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxNTY4NjgsImV4cCI6MjA3OTczMjg2OH0.GcB-p6J6CqwaefZ7Wi1LVCkNepzV86-Z0fn_EdU9M4s';
@@ -260,5 +260,6 @@ const checkSession = async () => {
 };
 
 checkSession();
+
 
 
