@@ -213,7 +213,7 @@ const handleRecovery = async (e) => {
     try {
         const { error } = await sb.auth.resetPasswordForEmail(email, { // Corregido: sb.auth
              // Esta URL debe apuntar al archivo new_password.html que creaste
-            redirectTo: window.location.origin + '/new_password.html', 
+            redirectTo: window.location.origin + ''/mercadeo/new_password.html'', 
         });
 
         if (error) throw error;
@@ -260,3 +260,4 @@ const checkSession = async () => {
 };
 
 checkSession();
+
