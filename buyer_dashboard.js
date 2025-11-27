@@ -16,7 +16,7 @@ const handleLogout = async () => {
         if (error) throw error;
         
         // Redirigir al usuario a la página de inicio o login
-        window.location.href = 'auth.html'; 
+        window.location.href = 'index.html'; 
     } catch (error) {
         console.error('Error al cerrar sesión:', error.message);
         alert('Hubo un problema al cerrar la sesión.');
